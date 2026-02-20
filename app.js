@@ -1,11 +1,19 @@
 import express from 'express';
 const app = express();
-app.set('view engine', 'ejs');
 
 const PORT = 3100;
+
+app.set('view engine', 'ejs');
+
+//middleware
+app.use(express.static("public"));
+
+
+const gridElements= {imgString: "/images/mbLogo.png", amount:20};
 // defualt route
 app.get('/', (req,res) => {
-  res.render(`home`);
+
+  res.render(`home`, {gridElements});
 })
 
 app.listen(PORT, () => {

@@ -3,9 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
   <title>MockBuster</title>
 </head>
+
+
 <body>
-  <h1>MockBuster</h1>
+  <header>
+    <nav id="nav-bar">
+      <button type="button">HomePage</button> 
+      <button type="button">Login/Signup</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hp-section">
+      <img src="/images/mbLogo.png" id="hp-logo-image" alt="MockBusters logo image">
+
+      <p id="about-us">
+        We are mockbusters
+      </p>
+
+      <figure id="hp-arrow-fig">
+          <img src="/images/arrowDown.png" id="hp-arrow-img" alt="arrow-image">
+          <figcaption>More movies</figcaption>
+          <img src="/images/arrowDown.png" id="hp-arrow-img" alt="arrow-image">
+      </figure>
+      </section>
+    </section>
+
+  <section id="movies-section">
+    <% for(let i = 0; i < gridElements.amount; i++) {%>
+    <img src=<%= `${gridElements.imgString}` %> class="hp-logo-image" alt="MockBusters logo image">
+    <%}%>
+  </section>
+  </main>
+
 </body>
 </html>
