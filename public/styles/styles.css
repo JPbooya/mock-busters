@@ -2,38 +2,41 @@
     --page-background-col: whitesmoke;
     --transparent-dark-bg-col: rgba(0, 0, 0, 0.25);
     --nav-background-col:  rgb(49, 41, 37);
+    --light-font-col: rgba(56, 56, 56, 0.85);
 }
 html{
-    box-sizing: border-box;
+    overflow-x: hidden;
     font-family: Arial, Helvetica, sans-serif;
     background: var(--page-background-col);
 }
 body{
-    margin: 0 auto;
+    /* overflow-x: hidden; */
+    margin: 0;
 }
-body *{
+*{
+    box-sizing: border-box;
     border-radius: .25rem;
 }
 header{
     position: sticky;
     top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--nav-background-col);
 }
 #nav-bar{
-    height: 8vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
-    background: var(--nav-background-col);
-    padding: 1rem;
+    padding: .5rem;
 }
 #hp-section{
-    height: 94vh;
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
     grid-template-areas:
-    "logo au"
     "logo au"
     "fig fig";
 }
@@ -47,29 +50,53 @@ header{
 }
 #about-us{
     grid-area: au;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: .25rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--light-font-col);
 }
 #hp-logo-image{
     grid-area: logo; 
-    width: 25vw;
-    height: 50vh;
-    background: blue;
 }
 #hp-arrow-fig{
     grid-area: fig;
     display: flex;
+    justify-content: space-evenly;
+    text-align: center;
     width: 100%;
-    justify-content: center;
-    background: var(--transparent-dark-bg-col);
 }
 figcaption{
     justify-content: center;
     align-content: center;
     font-size: clamp(2rem, 3vw, 3rem);
 }
-#hp-arrow-fig:hover{
+button:hover{
     opacity: 75%;
 }
 
-button:hover{
-    opacity: 75%;
+footer{
+    position: fixed;
+    bottom: .25rem;
+    left: .25rem;
+}
+@media screen and (orientation: portrait){
+    
+    #hp-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+    #movies-section{
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    #hp-arrow-fig{
+        margin-top: 4rem; /*might be problematic*/
+    }
 }
