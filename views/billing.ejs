@@ -1,82 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/styles.css">
   <title>Billing</title>
 </head>
+
 <body>
 
   <div class="container">
     <img src="images/mbLogo.png" alt="MB logo">
-      <div class="nav-links">
-        <a href="">Login</a>
-        <a href="">About Us</a>
+    <div class="nav-links">
+      <a href="">Login</a>
+      <a href="">About Us</a>
+    </div>
+  </div>
+
+  <form id="billing-form" action="/submit" method="post" class="form-grid">
+
+    <div for="movie" id="rented-movie">This is where the movie is going to go</div>
+
+    <div>
+      <label for="fname">First Name<span class="err" id="err-fname"></span></label>
+      <input type="text" id="fname" name="fname">
+    </div>
+
+    <div>
+      <label for="lname">Last Name<span class="err" id="err-lname"></span></label>
+      <input type="text" id="lname" name="lname">
+    </div>
+
+    <div>
+      <label for="aname">Address<span class="err" id="err-lname"></span></label>
+      <input type="text" id="aname" name="aname">
+    </div>
+
+    <div>
+      <label for="cname">City<span class="err" id="err-lname"></span></label>
+      <input type="text" id="cname" name="cname">
+    </div>
+
+    <div>
+      <label for="sname">State<span class="err" id="err-lname"></span></label>
+      <input type="text" id="sname" name="sname">
+    </div>
+
+    <div>
+      <label for="zname">Zip Code<span class="err" id="err-lname"></span></label>
+      <input type="text" id="zname" name="zname">
+    </div>
+
+    <!-- Billing Section -->
+    <div class="billing-info">
+      <div>
+        <label for="credit-name">Credit Card<span class="err" id="err-lname"></span></label>
+        <input type="text" id="credit-name" name="credit-name">
       </div>
-  </div>
 
-<div class="form-grid">
+      <div>
+        <label for="exname">Expiration Date<span class="err" id="err-lname"></span></label>
+        <input type="text" id="exame" name="exname">
+      </div>
 
-  <div for="movie" id="rented-movie">This is where the movie is going to go</div>
+      <div>
+        <label for="extension-name">Ex Code<span class="err" id="err-lname"></span></label>
+        <input type="text" id="extension-name" name="extension-name">
+      </div>
 
-  <div>
-    <label for="fname">First Name<span class="err" id="err-fname"></span></label>
-    <input type="text" id="fname" name="fname">
-  </div>
+      <div>
+        <label for="dtd-name">Deliver To Door<span class="err" id="err-lname"></span></label>
+        <input type="checkbox" id="dtd-name" name="dtd-name">
+      </div>
 
-  <div>
-    <label for="lname">Last Name<span class="err" id="err-lname"></span></label>
-    <input type="text" id="lname" name="lname">
-  </div>
+      <div class="full-width">
+        <button type="submit" id="order-button" class="submit-btn">Submit</button>
+      </div>
+    </div>
 
-  <div>
-    <label for="aname">Address<span class="err" id="err-lname"></span></label>
-    <input type="text" id="aname" name="aname">
-  </div>
-
-  <div>
-    <label for="cname">City<span class="err" id="err-lname"></span></label>
-    <input type="text" id="cname" name="cname">
-  </div>
-
-  <div>
-    <label for="sname">State<span class="err" id="err-lname"></span></label>
-    <input type="text" id="sname" name="sname">
-  </div>
-
-  <div>
-    <label for="zname">Zip Code<span class="err" id="err-lname"></span></label>
-    <input type="text" id="zname" name="zname">
-  </div>
-
- <!-- Billing Section -->
-  <div class="billing-info">
-   <div>
-    <label for="credit-name">Credit Card<span class="err" id="err-lname"></span></label>
-    <input type="text" id="credit-name" name="credit-name">
-  </div>
-
-   <div>
-    <label for="exname">Expiration Date<span class="err" id="err-lname"></span></label>
-    <input type="text" id="exame" name="exname">
-  </div>
-
-   <div>
-    <label for="extension-name">Ex Code<span class="err" id="err-lname"></span></label>
-    <input type="text" id="extension-name" name="extension-name">
-  </div>
-
-   <div>
-    <label for="dtd-name">Deliver To Door<span class="err" id="err-lname"></span></label>
-    <input type="checkbox" id="dtd-name" name="dtd-name">
-  </div>
-
-  <div class="full-width">
-    <button type="submit" id="order-button" class="submit-btn">Submit</button>
-  </div>
-</div>
-
-</div>
+  </form>
 </body>
+
 </html>
