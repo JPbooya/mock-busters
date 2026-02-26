@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/styles.css">
   <title>Billing</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/styles.css">
+  <!-- Scripts -->
+  <script defer src="js/billing.js"></script>
 </head>
 
 <body>
@@ -23,54 +26,54 @@
     <div for="movie" id="rented-movie">This is where the movie is going to go</div>
 
     <div>
-      <label for="fname">First Name<span class="err" id="err-fname"></span></label>
+      <label for="fname">First Name<span class="err" id="err-fname">Invalid First Name.</span></label>
       <input type="text" id="fname" name="fname">
     </div>
 
     <div>
-      <label for="lname">Last Name<span class="err" id="err-lname"></span></label>
+      <label for="lname">Last Name<span class="err" id="err-lname">Invalid Last Name.</span></label>
       <input type="text" id="lname" name="lname">
     </div>
 
     <div>
-      <label for="aname">Address<span class="err" id="err-lname"></span></label>
+      <label for="aname">Address<span class="err" id="err-aname">Invalid Address.</span></label>
       <input type="text" id="aname" name="aname">
     </div>
 
     <div>
-      <label for="cname">City<span class="err" id="err-lname"></span></label>
+      <label for="cname">City<span class="err" id="err-cname">Invalid City.</span></label>
       <input type="text" id="cname" name="cname">
     </div>
 
     <div>
-      <label for="sname">State<span class="err" id="err-lname"></span></label>
+      <label for="sname">State<span class="err" id="err-sname">Invalid State.</span></label>
       <input type="text" id="sname" name="sname">
     </div>
 
     <div>
-      <label for="zname">Zip Code<span class="err" id="err-lname"></span></label>
+      <label for="zname">Zip Code<span class="err" id="err-zname">Invalid Zip Code.</span></label>
       <input type="text" id="zname" name="zname">
     </div>
 
     <!-- Billing Section -->
     <div class="billing-info">
       <div>
-        <label for="credit-name">Credit Card<span class="err" id="err-lname"></span></label>
+        <label for="credit-name">Credit Card<span class="err" id="err-credit-name">Invalid Credit Card.</span></label>
         <input type="text" id="credit-name" name="credit-name">
       </div>
 
       <div>
-        <label for="exname">Expiration Date<span class="err" id="err-lname"></span></label>
-        <input type="text" id="exame" name="exname">
+        <label for="exname">Expiration Date<span class="err" id="err-exname">Invalid Expiration Date</span></label>
+        <input type="text" id="exname" name="exname">
       </div>
 
       <div>
-        <label for="extension-name">Ex Code<span class="err" id="err-lname"></span></label>
+        <label for="extension-name">Ex Code<span class="err" id="err-extension-name">Invalid Ex Code</span></label>
         <input type="text" id="extension-name" name="extension-name">
       </div>
 
       <div>
-        <label for="dtd-name">Deliver To Door<span class="err" id="err-lname"></span></label>
+        <label for="dtd-name">Deliver To Door<span class="err" id="err-delivery"></span></label>
         <input type="checkbox" id="dtd-name" name="dtd-name">
       </div>
 
