@@ -18,7 +18,7 @@ app.get('/', (req,res) => {
 });
 
 app.get('/billing', (req,res) => {
-  res.sendFile(`${import.meta.dirname}/views/billing.html`)
+  res.render(`billing`);
 });
 
 app.listen(PORT, () => {
