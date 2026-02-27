@@ -1,3 +1,5 @@
+// Validation regex patterns
+const ValidCreditCardPattern = /\d{16}/d;
 // The billing form 
 const billingForm = document.getElementById("billing-form");
 
@@ -43,32 +45,32 @@ billingForm.onsubmit = () => {
     }
 
     city = cityElement.value.trim();
-    if (!lastName) {
+    if (!city) {
         isValid = false;
         document.getElementById("err-cname").style.display = "block";
     }
     state = stateElement.value.trim();
-    if (!lastName) {
+    if (!state) {
         isValid = false;
         document.getElementById("err-sname").style.display = "block";
     }
     zipcode = zipCodeElement.value.trim();
-    if (!lastName) {
+    if (!zipcode) {
         isValid = false;
         document.getElementById("err-zname").style.display = "block";
     }
     creditcard = creditCardElement.value.trim();
-    if (!lastName) {
+    if (!creditcard && !ValidCreditCardPattern.test(creditcard)) {
         isValid = false;
         document.getElementById("err-credit-name").style.display = "block";
     }
     expiration = expirationDateElement.value.trim();
-    if (!lastName) {
+    if (!expiration) {
         isValid = false;
         document.getElementById("err-exname").style.display = "block";
     }
     excode = extensionElement.value.trim();
-    if (!lastName) {
+    if (!excode) {
         isValid = false;
         document.getElementById("err-extension-name").style.display = "block";
     }
