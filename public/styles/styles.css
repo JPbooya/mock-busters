@@ -4,6 +4,11 @@
     --nav-background-col:  rgb(49, 41, 37);
     --light-font-col: rgba(56, 56, 56, 0.85);
 }
+
+body {
+    min-width:400px;
+}
+
 /* --Billing Form-- */
 .container {
     background-color: var(--nav-background-col);
@@ -147,6 +152,16 @@ footer{
     color:darkred;
     display: none;
     font-size: 1rem;
+}
+
+@media screen and (max-width:550px) {
+    #rented-movie {
+        grid-column: 1 / -1;
+    }
+
+    .form-grid {
+        grid-template-columns:1fr 1fr;
+    }
 }
 
 @media screen and (orientation: portrait){
