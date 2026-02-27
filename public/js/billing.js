@@ -73,7 +73,7 @@ billingForm.onsubmit = () => {
         document.getElementById("err-extension-name").style.display = "block";
     }
     // Except for delivery
-    // Although do we even want a delivery button? We already have to deliver..?
+    // Although do we even want a delivery button?
 
     // delivery = deliveryElement.value.trim();
     // if (!lastName) {
