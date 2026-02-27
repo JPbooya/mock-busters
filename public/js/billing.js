@@ -1,5 +1,3 @@
-// Validation regex patterns
-const ValidCreditCardPattern = /\d{16}/d;
 // The billing form 
 const billingForm = document.getElementById("billing-form");
 
@@ -59,13 +57,21 @@ billingForm.onsubmit = () => {
         isValid = false;
         document.getElementById("err-zname").style.display = "block";
     }
+    // Can't assume the length of the credit card
     creditcard = creditCardElement.value.trim();
-    if (!creditcard && !ValidCreditCardPattern.test(creditcard)) {
+    if (!creditcard) {
         isValid = false;
         document.getElementById("err-credit-name").style.display = "block";
     }
     expiration = expirationDateElement.value.trim();
-    if (!expiration) {
+    // Get the year and month of the expiration
+    let [year,month] = expiration.split("-");
+    // Create a date object with this information, this gives the first day of the expiration month.
+    let expirationDate = new Date(parseInt(year),parseInt(month));
+    // Get the current date.
+    let currentDate = new Date();
+    // If there's no given expiration date, or the date is before the current day, fail validation.
+    if (!expiration || expirationDate.getTime()<=currentDate.getTime()) {
         isValid = false;
         document.getElementById("err-exname").style.display = "block";
     }
