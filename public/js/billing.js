@@ -1,3 +1,7 @@
+const ValidEmailPattern = /\w{1,}@{1}\w{1,}[.]{1}\w{1,}/d;
+const ValidCreditCardPattern = /\d{16}/;
+
+
 // The billing form 
 const billingForm = document.getElementById("billing-form");
 
