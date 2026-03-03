@@ -5,7 +5,7 @@ This is for listing our requirements per Sprint as well as noting things to disc
 ## Sprint 2
 Incorporate multiple view pages, EJS, and routing into your application. Save data to an in-memory array. Add navigation to your site.
 ### Requirements
-- Two express routes
+- ~~Two express routes~~
     - / (home)
     - /billing
 - ~~Use EJS views~~ - This was done in Sprint 1
