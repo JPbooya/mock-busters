@@ -1,11 +1,12 @@
 :root{
     --page-background-col: whitesmoke;
     --light-border-col: rgba(245, 245, 245, 0.85);
-    --transparent-dark-bg-col: rgba(0, 0, 0, 0.25);
+    --transparent-dark-bg-col: rgba(0, 0, 0, 0.75);
     --nav-background-col:  rgb(49, 41, 37);
     --dark-faded-font-col: rgba(56, 56, 56, 0.85);
     --light-font-col: rgba(255, 255, 255, 0.8);
     --error-col: darkred;
+    --movie-card-button: rgb(170, 0, 0);
 
 }
 
@@ -25,6 +26,7 @@ html{
 }
 body{
     margin: 0;
+
 }
 *{
     box-sizing: border-box;
@@ -86,6 +88,43 @@ footer{
     font-size: 1rem;
 }
 
+/* --MovieCard-- */
+#movie-card{
+    transition: all .25s ease-in-out;
+    background-color: var(--nav-background-col);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.519);
+}
+#movie-card:hover{
+    scale: calc(1.25);
+}
+#movie-card a{
+    width: 50%;
+    margin-top: .5rem;
+    padding: .125rem;
+    border: none;
+    color: var(--light-font-col);
+    background-color: var(--movie-card-button);
+    text-align: center;
+    text-decoration: none;
+}
+#movie-card a:hover{
+    opacity: 80%;
+}
+#movie-card figcaption{
+    margin-top: .5rem;
+    font-style: italic;
+    color: var(--light-font-col);
+    font-size: clamp(.75rem, 1.75vw, 1.5rem);
+    text-align: center;
+}
+/* --MovieCard End-- */
+
+
 /* --Header-- */
 header{
     position: sticky;
@@ -113,6 +152,7 @@ header{
     color: var(--light-font-col);
     background: var(--dark-faded-font-col);
     box-shadow: -.1rem .1rem .1rem black;
+    font-size: clamp(.5rem, 1.25vw, 1.25rem);
 }
 #nav-links a:hover , #nav-bar-logo-a:hover{
     opacity: 50%;
@@ -178,12 +218,12 @@ input[type="text"], input {
         justify-items: center;
     }
     #movies-section{
-        display: grid;
-        grid-template-columns: auto auto;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: auto;
         align-items: center;
         justify-items: center;
-        gap: 1rem;
-        padding: 1rem;
+        row-gap: 1rem;
     }
     #hp-arrow-fig{
         margin-top: 4rem; /*might be problematic*/

@@ -23,6 +23,9 @@ app.get('/', (req,res) => {
 app.get('/billing', (req,res) => {
   res.render(`billing`);
 });
+app.get('/movie-info', (req,res) => {
+  res.render(`movieInfo`);
+});
 
 app.get('/admin', (req,res) => {
   res.send(orders);

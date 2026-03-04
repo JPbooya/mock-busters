@@ -41,7 +41,7 @@
 
     <section id="movies-section">
       <% for(let i = 0; i < gridElements.amount; i++) {%>
-      <img src=<%= `${gridElements.imgString}` %> class="hp-logo-image" alt="MockBusters logo image">
+        <%- include ('../views/partials/movieCard.ejs') %>
       <%}%>
     </section>
   </main>
