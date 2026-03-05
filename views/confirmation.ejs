@@ -9,9 +9,34 @@
     <title>Submit</title>
 </head>
 <body>
-    <h1>Thank you!</h1>
-    <!-- implement ejs template too show information
-     ex: <%= order.fname%>
+
+      <%- include ('../views/partials/header.ejs') %>
+      
+    <h1>Thank you!  <%= order.firstName %>!</h1>
+    <h2>Your Order Details</h2>
+    <p>Name: <%= order.firstName %> </p>
+    <p>LastName:  <%= order.lastName %></p>
+    <p>Address:  <%= order.address %></p>
+    <p>City:  <%= order.city %></p>
+    <p>State:  <%= order.state %></p>
+    <p>Zipcode:  <%= order.zipcode %></p>
+    
+
+    <!--
+     const order = {
+    firstName: req.body.fname,
+    lastName: req.body.lname,
+    address: req.body.aname,
+    city: req.body.cname,
+    state: req.body.sname,
+    zipcode: req.body.zname,
+    creditcard: req.body["credit-name"],
+    extension: req.body["extension-name"],
+    expiration: req.body["exname"],
+    delivery: req.body["dtd-name"],
+    timestamp: new Date()
+  }
+    
     -->
     <a href="/">Return</a>
     <!-- This page is extremely unfinished and temporary. -->
