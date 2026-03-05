@@ -12,7 +12,7 @@ Incorporate multiple view pages, EJS, and routing into your application. Save da
 - Display confirmation page on form submission
     - Somewhat complete; confirmation page needs work.
 - Save the form data to an in-memory array with timestamps
-- Add a route that displays all submissions from the in-memory array 
+- ~~Add a route that displays all submissions from the in-memory array ~~
     - I recommend we use "/admin"
     - Data must be formatted in a "clean, readable layout"
 - A navigation bar that links to all pages is visible on every page
