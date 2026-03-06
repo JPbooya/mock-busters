@@ -138,6 +138,12 @@ header{
     justify-content: space-between;
     padding: .5rem;
 }
+#nav-bar h1{
+        margin: 0;
+    font-size: clamp(.75rem 1.5vw, 1.5rem);
+    color: var(--mb-yellow-col);
+    align-self: center;
+}
 #nav-links {
     display: flex;
     align-items: center;
