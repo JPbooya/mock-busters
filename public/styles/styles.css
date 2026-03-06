@@ -1,17 +1,19 @@
 :root{
-    --page-background-col: whitesmoke;
+    --page-background-col: rgb(255, 248, 211);
     --light-border-col: rgba(245, 245, 245, 0.85);
     --transparent-dark-bg-col: rgba(0, 0, 0, 0.75);
-    --nav-background-col:  rgb(49, 41, 37);
+    --nav-background-col:  rgb(11, 0, 113);
     --dark-faded-font-col: rgba(56, 56, 56, 0.85);
-    --light-font-col: rgba(255, 255, 255, 0.8);
+    --light-font-col: rgb(255, 255, 255);
     --error-col: darkred;
-    --movie-card-button: rgb(170, 0, 0);
-
+    --movie-card-button: rgb(36, 36, 36);
+    --mb-yellow-col:  rgb(255, 232, 59);
+    --font-col:rgba(0, 0, 0, 0.85);
 }
 
 body {
     min-width:400px;
+    color: var(--font-col);
 }
 label {
     font-size: 1.2rem;
@@ -21,12 +23,11 @@ label {
 }
 html{
     overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background: var(--page-background-col);
 }
 body{
     margin: 0;
-
 }
 *{
     box-sizing: border-box;
@@ -40,7 +41,6 @@ body{
     justify-items: center;
     grid-template-areas:
     "logo au"
-    "fig fig";
 }
 #movies-section{
     display: grid;
@@ -52,7 +52,7 @@ body{
 }
 #about-us{
     grid-area: au;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 1.5vw, 2rem);
     padding: .25rem;
     line-height: 1.5;
     font-style: italic;
@@ -62,13 +62,18 @@ body{
     grid-area: logo; 
 }
 #hp-arrow-fig{
+    animation: banner-anim 3.5s infinite;
     grid-area: fig;
     display: flex;
+    position: sticky;
+    bottom: 0;
     justify-content: space-evenly;
     text-align: center;
     width: 100%;
+    opacity: 90%;
 }
 #hp-arrow-fig h2{
+    font-family:Georgia, 'Times New Roman', Times, serif;
     justify-content: center;
     align-content: center;
     font-size: clamp(2rem, 3vw, 3rem);
@@ -90,30 +95,23 @@ footer{
 
 /* --MovieCard-- */
 #movie-card{
-    transition: all .25s ease-in-out;
+    transition: all .35s ease-in-out;
+}
+#movie-card{
     background-color: var(--nav-background-col);
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
     padding: 1rem;
-    box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.519);
+    box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.5);
 }
-#movie-card:hover{
-    scale: calc(1.25);
-}
-#movie-card a{
-    width: 50%;
-    margin-top: .5rem;
-    padding: .125rem;
-    border: none;
-    color: var(--light-font-col);
-    background-color: var(--movie-card-button);
-    text-align: center;
+#movie-card-a{
     text-decoration: none;
 }
-#movie-card a:hover{
-    opacity: 80%;
+#movie-card:hover{
+    background-color: var(--mb-yellow-col);
+    scale: calc(1.1);
 }
 #movie-card figcaption{
     margin-top: .5rem;
@@ -145,17 +143,22 @@ header{
     align-items: center;
 }
 #nav-links a{
-    border: .125rem solid var(--light-border-col);
+    border: .125rem solid var(--mb-yellow-col);
     padding:.5rem;
     margin: 0rem .25rem;
     text-decoration: none;
     color: var(--light-font-col);
     background: var(--dark-faded-font-col);
-    box-shadow: -.1rem .1rem .1rem black;
+    box-shadow: -.1rem .1rem .25rem rgba(0, 0, 0, 0.49);
     font-size: clamp(.5rem, 1.25vw, 1.25rem);
 }
-#nav-links a:hover , #nav-bar-logo-a:hover{
-    opacity: 50%;
+#nav-links a:hover{
+    background: var(--page-background-col);
+    color: black;
+    opacity: 90%;
+}
+#nav-bar-logo-a:hover{
+    opacity: 90%;
 }
 #nav-bar-logo-a{
     display:flex;/*this fits the logo inside the anchor tag*/
@@ -226,6 +229,14 @@ input[type="text"], input {
         row-gap: 1rem;
     }
     #hp-arrow-fig{
+
         margin-top: 4rem; /*might be problematic*/
     }
 }
+
+@keyframes banner-anim {
+    0%  { color: var(--nav-background-col); }
+    40%   { color: var(--mb-yellow-col); }
+    100%  { color: var(--nav-background-col); }
+}
+

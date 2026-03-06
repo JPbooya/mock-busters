@@ -14,8 +14,6 @@
 <body>
 
 <%- include ('../views/partials/header.ejs') %>
-
-
   <main>
     <section id="hp-section">
       <img src="/images/mbLogo.png" id="hp-logo-image" alt="MockBusters logo image">
@@ -32,13 +30,13 @@
 
       </p>
 
+
+    </section>
       <div id="hp-arrow-fig">
           <img src="/images/arrowDown.png" alt="arrow-image">
-          <h2> Movies</h2>
+          <h2> VIEW MOVIES</h2>
           <img src="/images/arrowDown.png" alt="arrow-image">
       </div>
-    </section>
-
     <section id="movies-section">
       <% for(let i = 0; i < gridElements.amount; i++) {%>
         <%- include ('../views/partials/movieCard.ejs') %>
@@ -46,7 +44,7 @@
     </section>
   </main>
   <footer>
-    <a href="https://github.com/JPbooya/mock-busters">GIT LINK</a>
+
   </footer>
 
 </body>
