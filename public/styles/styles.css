@@ -45,10 +45,10 @@ body{
 #movies-section{
     display: grid;
     grid-template-columns: auto auto auto;
-    align-items: center;
-    justify-items: center;
     gap: 1rem;
     padding: 1rem;
+    justify-items: stretch;
+    align-items: stretch;
 }
 #about-us{
     grid-area: au;
@@ -97,17 +97,31 @@ footer{
 #movie-card{
     transition: all .35s ease-in-out;
 }
+#movie-name{
+        transition: all .35s ease-in-out;
+    font-weight: bold;
+    font-size: clamp(1rem, 1.75vw, 1.5rem);
+    color: var(--mb-yellow-col);
+}
+#movie-card:hover #movie-name{
+    color: var(--light-border-col);
+}
+#movie-info{
+    font-style: italic;
+    font-size: clamp(.5rem, 1.5vw, 1rem);
+}
 #movie-card{
     background-color: var(--nav-background-col);
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    padding: 1rem;
+    padding: .5rem;
     box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.5);
 }
 #movie-card-a{
     text-decoration: none;
+
 }
 #movie-card:hover{
     background-color: var(--mb-yellow-col);
@@ -115,10 +129,10 @@ footer{
 }
 #movie-card figcaption{
     margin-top: .5rem;
-    font-style: italic;
     color: var(--light-font-col);
-    font-size: clamp(.75rem, 1.75vw, 1.5rem);
-    text-align: center;
+    width: 100%;
+    padding: .25rem;
+    background-color: rgba(250, 235, 215, 0.282);
 }
 /* --MovieCard End-- */
 
@@ -230,8 +244,10 @@ input[type="text"], input {
         display: flex;
         flex-direction: column;
         grid-template-columns: auto;
-        align-items: center;
-        justify-items: center;
+        /* align-items: center;
+        justify-items: center; */
+        justify-items: stretch;
+        align-items: stretch;
         row-gap: 1rem;
     }
     #hp-arrow-fig{

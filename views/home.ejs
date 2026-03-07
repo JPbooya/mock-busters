@@ -19,14 +19,13 @@
       <img src="/images/mbLogo.png" id="hp-logo-image" alt="MockBusters logo image">
 
       <p id="about-us">
-      What is Lorem Ipsum?
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-      when an unknown printer took a galley of type and scrambled it to make a type specimen
-      book. It has survived not only five centuries, but also the leap into electronic 
-      typesetting, remaining essentially unchanged. It was popularised in the 1960s with 
-      the release of Letraset sheets containing Lorem Ipsum passages, 
-      and more recently with desktop publishing software like Aldus PageMaker
+          MockBusters is a modern take on the classic video rental experience. 
+          Inspired by the days of wandering the aisles at your local video store,
+          MockBusters lets you browse a collection of movies, pick your favorites, 
+          and rent them with the option of having them delivered right to your door.
+          Whether you're planning a movie night, revisiting an old favorite, or discovering 
+          something new, MockBusters brings a little bit of that nostalgic 
+          video store magic back—just with a lot more convenience.
 
       </p>
 
@@ -38,8 +37,8 @@
           <img src="/images/arrowDown.png" alt="arrow-image">
       </div>
     <section id="movies-section">
-      <% for(let i = 0; i < gridElements.amount; i++) {%>
-        <%- include ('../views/partials/movieCard.ejs') %>
+      <% for(let i = 0; i < Object.entries(moviesData).length; i++) {%>
+        <%- include ('../views/partials/movieCard.ejs', {movie: moviesData[i]}) %>
       <%}%>
     </section>
   </main>
