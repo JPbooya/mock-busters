@@ -17,14 +17,12 @@
 
   <main>
   <section id="movies-section">
-    <% moviesData.forEach(movie => { %>
       <div >
         <h3><%= movie.movieName %></h3>
         <p><%= movie.movieInfo %></p>
         <p>Genre: <%= movie.movieGenre %></p>
         <p>selected: <%= movie.selected %></p>
       </div>
-    <% }) %>
   </section>
   </main>
 

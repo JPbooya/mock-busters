@@ -94,23 +94,21 @@ footer{
 }
 
 /* --MovieCard-- */
-#movie-card{
-    transition: all .35s ease-in-out;
-}
 #movie-name{
         transition: all .35s ease-in-out;
     font-weight: bold;
     font-size: clamp(1rem, 1.75vw, 1.5rem);
     color: var(--mb-yellow-col);
 }
-#movie-card:hover #movie-name{
+.movie-card:hover #movie-name{
     color: var(--light-border-col);
 }
 #movie-info{
     font-style: italic;
     font-size: clamp(.5rem, 1.5vw, 1rem);
 }
-#movie-card{
+.movie-card{
+    transition: all .35s ease-in-out;
     background-color: var(--nav-background-col);
     display: flex;
     flex-direction: column;
@@ -123,11 +121,11 @@ footer{
     text-decoration: none;
 
 }
-#movie-card:hover{
+.movie-card:hover{
     background-color: var(--mb-yellow-col);
     scale: calc(1.1);
 }
-#movie-card figcaption{
+.movie-card figcaption{
     margin-top: .5rem;
     color: var(--light-font-col);
     width: 100%;

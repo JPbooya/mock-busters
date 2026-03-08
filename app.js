@@ -33,7 +33,8 @@ app.get('/billing', (req, res) => {
 
 // renders movie info page when a movie is clicked
 app.get('/movie-info', (req, res) => {
-  res.render(`movieInfo`, { moviesData: moviesData });
+  console.log( req.query.index);
+  res.render(`movieInfo`, { movie: moviesData[req.query.index] });
 });
 
 app.get('/admin', (req, res) => {

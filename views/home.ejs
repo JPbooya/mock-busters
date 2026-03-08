@@ -38,7 +38,7 @@
       </div>
     <section id="movies-section">
       <% for(let i = 0; i < Object.entries(moviesData).length; i++) {%>
-        <%- include ('../views/partials/movieCard.ejs', {movie: moviesData[i]}) %>
+        <%- include ('../views/partials/movieCard.ejs', {movie: moviesData[i], index: i}) %>
       <%}%>
     </section>
   </main>
