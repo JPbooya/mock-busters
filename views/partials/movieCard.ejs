@@ -1,11 +1,62 @@
-<a id="movie-card-a" href="/movie-info?index=<%= index %>" >
+<a id="movie-card-a" href="/movie-info?index=<%= index %>" > 
     <figure class="movie-card">
         <img src=<%= `${gridElements.imgString}` %> class="hp-logo-image" alt="MockBusters logo image">
         <figcaption>
             <p><span id="movie-name"><%= movie.movieName %></span></p>
             <p></strong><span id="movie-info">"<%= movie.movieInfo %> "</span></p>
             <p><strong>Genre : <span id="movie-gnere"></strong><%= movie.movieGenre %></span></p>
-           <%= movie.selected%>
         </figcaption>
     </figure>
 </a>
+
+<!--
+DOCUMENTATION!
+
+This section handles passing the selected movie from the Home Page
+to the Movie Info Page.
+
+Each movie card on the homepage is generated in a loop. The loop
+assigns an "index" value to every movie. That index represents the
+movie’s position in the moviesData array.
+
+FLOW OF DATA WHEN A USER CLICKS A MOVIE CARD:
+1. home.ejs
+   The homepage loops through the moviesData array using a for loop.
+   During each iteration, it includes the movieCard.ejs partial and
+   passes two values:
+      - movie: the movie object
+      - index: the position of that movie in the moviesData array
+
+2. movieCard.ejs (Partial)
+   The movie card is a clickable element (<a> tag).
+   The index value passed from home.ejs is added to the URL as a
+   query parameter:
+
+      /movie-info?index=<%= index %>
+
+   This creates a unique URL for each movie based on its index.
+
+3. User Click
+   When the user clicks the movie card, the browser navigates to
+   /movie-info and sends the index value in the query string.
+
+4. app.js Route
+   The Express route reads the index using:
+
+      req.query.index
+
+   This value is used to select the correct movie from the
+   moviesData array:
+
+      moviesData[req.query.index]
+
+5. movieInfo.ejs
+   The selected movie object is passed into the template as "movie".
+   The page then renders the movie’s details (name, info, genre, etc.).
+
+SUMMARY:
+home.ejs → movieCard.ejs → URL with index → app.js route → movieInfo.ejs
+
+The index acts as a simple identifier that allows the server to
+retrieve and display the correct movie from the moviesData array.
+-->

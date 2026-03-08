@@ -1,22 +1,25 @@
 import express from 'express';
+/* DOCUMENTATION 
+Movie data import
 
-/* omg this is so jank, i tried getting a simple json file to work
-but there are too many hoops, so if we plan on doing hard coded movies this 
-is the best i could do */
-import { moviesData } from './data/moviesData.js'; // gets the movie info from a .js script in a data folder that i added 
+Currently the movie information is stored in a JavaScript file instead of a JSON file.
+Using a JS module allows the data to be imported directly into the server without
+additional parsing or configuration.
+
+If the project later moves to a dynamic data source (JSON file, database, or API),
+this import can be updated accordingly. */
+import { moviesData } from './data/moviesData.js'; // Imports movie data from the data folder
+
 const app = express();
-
 const PORT = 3090;
-
 app.set('view engine', 'ejs');
 
 //middleware
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-
-const gridElements = { imgString: "/images/mbLogo.png", amount: 20 };
-
+// this is the image route string, it was suppose to be an array of many images, but currently only the one is used so it might appear unneccesary.
+const gridElements = { imgString: "/images/mbLogo.png" }; 
 const orders = []
 
 
@@ -33,7 +36,7 @@ app.get('/billing', (req, res) => {
 
 // renders movie info page when a movie is clicked
 app.get('/movie-info', (req, res) => {
-  console.log( req.query.index);
+  // console.log( req.query.index);
   res.render(`movieInfo`, { movie: moviesData[req.query.index] });
 });
 
