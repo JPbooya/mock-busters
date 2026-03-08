@@ -134,6 +134,40 @@ footer{
 }
 /* --MovieCard End-- */
 
+/* --MovieInfo --*/
+#movieInfo-grid{
+    height: 100vh;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+}
+#selected-movie-section{
+    padding: 1rem;
+    border-radius: .5rem;
+    background: rgba(255, 255, 255, 0.875);
+}
+#movieInfo-rent-a{
+    transition: all .25s ease-in-out;
+    border: .125rem solid var(--mb-yellow-col);
+    padding:.5rem;
+    margin: 0rem .25rem;
+    text-decoration: none;
+    color: var(--light-font-col);
+    background: var(--dark-faded-font-col);
+    box-shadow: -.1rem .1rem .25rem rgba(0, 0, 0, 0.49);
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-decoration: none;
+    justify-self: center;
+    align-self: center;
+}
+#movieInfo-rent-a:hover{
+    background: lime;
+    opacity: 90%;
+}
+/* --MovieInfo end --*/
+
+
 
 /* --Header-- */
 header{
@@ -161,6 +195,7 @@ header{
     align-items: center;
 }
 #nav-links a{
+    transition: all .25s ease-in-out;
     border: .125rem solid var(--mb-yellow-col);
     padding:.5rem;
     margin: 0rem .25rem;

@@ -13,6 +13,7 @@ import { moviesData } from './data/moviesData.js'; // Imports movie data from th
 const app = express();
 const PORT = 3090;
 app.set('view engine', 'ejs');
+let curSelectedMovieIdx;
 
 //middleware
 app.use(express.static("public"));
@@ -32,12 +33,20 @@ app.get('/', (req, res) => {
 
 app.get('/billing', (req, res) => {
   res.render(`billing`);
+  /*adding this code will pass the selected movie info into billing page
+   
+   res.render(`billing`,  { movie: moviesData[curSelectedMovieIdx] }); 
+    
+    I left it commented to not alter more than my assigned tasks
+    */
 });
 
 // renders movie info page when a movie is clicked
 app.get('/movie-info', (req, res) => {
   // console.log( req.query.index);
-  res.render(`movieInfo`, { movie: moviesData[req.query.index] });
+  curSelectedMovieIdx = req.query.index; // 
+
+  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx] , index: curSelectedMovieIdx });
 });
 
 app.get('/admin', (req, res) => {
