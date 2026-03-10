@@ -33,6 +33,59 @@ body{
     box-sizing: border-box;
     border-radius: .25rem;
 }
+
+#login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 12rem;
+}
+
+#login-container {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.875);
+  padding: 2rem;
+  width: 100%;
+  max-width: 850px;
+  min-height: 650px;
+  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.4); /* even more lift */
+  font-size: 2rem;
+}
+
+#login-container input:focus {
+  outline: 2px solid var(--nav-background-col); /* blue outline on click */
+  border-color: var(--nav-background-col);
+}
+
+#login-container input {
+    border: 1px solid lightgray !important;
+}
+
+#login-button {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  padding: .75rem;
+  background: var(--nav-background-col);
+  color: var(--light-font-col);
+  border: .125rem solid var(--mb-yellow-col);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+#login-form div {
+    width: 60%;
+    margin-bottom: 8rem;
+}
+
 #hp-section{
     min-height: 100vh;
     display: grid;

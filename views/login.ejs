@@ -12,5 +12,28 @@
 </head>
 <body>
     <%- include ('../views/partials/header.ejs') %>
+  <main id="login-section">
+
+    <div id="login-container">
+      <form id="login-form">
+
+          <div>
+           <label for="ename">Email Address:<br><span class="err" id="err-email"> *Please add a valid email* </span></label>
+           <input type="email" id="ename" name="ename">
+          </div>
+
+          <div>
+           <label for="password">Password:<span class="err" id="err-password"> *Password required* </span></label>
+           <input type="password" id="password" name="password">
+          </div>
+
+          <div class="submit-btn">
+            <button type="submit" id="login-button">Login/SignUp</button>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
 </body>
 </html>
