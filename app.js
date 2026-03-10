@@ -41,6 +41,11 @@ app.get('/billing', (req, res) => {
     */
 });
 
+// login route
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 // renders movie info page when a movie is clicked
 app.get('/movie-info', (req, res) => {
   // console.log( req.query.index);
