@@ -67,7 +67,7 @@ app.get('/movie-info', (req, res) => {
 });
 
 app.get('/admin', async (req, res) => {
-  let sql = 'SELECT * FROM orders JOIN movies ON orders.movie_id = movies.id ORDER BY timestamp DESC';
+  let sql = 'SELECT orders.id AS id, customer, email, address, timestamp, movies.title AS title FROM orders JOIN movies ON orders.movie_id = movies.id ORDER BY timestamp DESC';
   const orders = await pool.query(sql);
   res.render(`admin`, { orders: orders[0] });
 });
@@ -90,13 +90,14 @@ app.post('/submit', async (req, res) => {
 
   // Array for saving to database
   const params = [
-    req.body.fname + ", " + req.body.lname, // Name
-    req.body.address, // Address
+    req.body.fname + " " + req.body.lname, // Name
+    req.body.aname, // Address
     "EMAIL",  // Email,
     1, // Movie ID (not yet tracked)
   ]
 
-  const sql = `INSERT INTO orders (customer, email, address, movie) VALUES (?,?,?,?)`
+  // CUSTOMER, ADDRESS, EMAIL, MOVIE_ID <--in that order
+  const sql = `INSERT INTO orders (customer, address, email, movie_id) VALUES (?,?,?,?)`
 
   // Try to save the data to the database
   try {
@@ -111,5 +112,5 @@ app.post('/submit', async (req, res) => {
 
 // Developer testing connection
 app.listen(PORT, () => {
-  console.log(`server is running on port: http://localhost:${PORT}`)
+  console.log(`Server is running on port: http://localhost:${PORT}`)
 });
