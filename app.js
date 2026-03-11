@@ -24,7 +24,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // this is the image route string, it was suppose to be an array of many images, but currently only the one is used so it might appear unneccesary.
-const gridElements = { imgString: "/images/mbLogo.png" }; 
+const gridElements = { imgString: "/images/mbLogo.png" };
 const orders = []
 
 // Pool of database connections
@@ -33,7 +33,7 @@ const pool = mysql2.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  port:  process.env.DB_PORT
+  port: process.env.DB_PORT
 }).promise();
 
 
@@ -63,16 +63,17 @@ app.get('/movie-info', (req, res) => {
   // console.log( req.query.index);
   curSelectedMovieIdx = req.query.index; // 
 
-  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx] , index: curSelectedMovieIdx });
+  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx });
 });
 
 app.get('/admin', async (req, res) => {
-  let sql = 'SELECT * FROM orders ORDER BY timestamp DESC';
+  let sql = 'SELECT * FROM orders JOIN movies ON orders.movie_id = movies.id ORDER BY timestamp DESC';
   const orders = await pool.query(sql);
   res.render(`admin`, { orders: orders[0] });
 });
 
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
+  // JSON for displaying to client.
   const order = {
     firstName: req.body.fname,
     lastName: req.body.lname,
@@ -87,11 +88,28 @@ app.post('/submit', (req, res) => {
     timestamp: new Date()
   }
 
-  orders.push(order);
+  // Array for saving to database
+  const params = [
+    req.body.fname + ", " + req.body.lname, // Name
+    req.body.address, // Address
+    "EMAIL",  // Email,
+    1, // Movie ID (not yet tracked)
+  ]
 
-  res.render(`confirmation`, { order });
+  const sql = `INSERT INTO orders (customer, email, address, movie) VALUES (?,?,?,?)`
+
+  // Try to save the data to the database
+  try {
+    const result = await pool.execute(sql, params);
+    console.log('Order saved with ID:', result[0].insertId);
+    res.render(`confirmation`, { order });
+  } catch (e) {
+    console.error('Error saving order:', e);
+    res.status(500).send('Sorry, there was an error processing your order. Please try again.');
+  }
 });
 
+// Developer testing connection
 app.listen(PORT, () => {
   console.log(`server is running on port: http://localhost:${PORT}`)
 });

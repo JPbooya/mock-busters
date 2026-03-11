@@ -32,28 +32,20 @@ const order = {
   <table id="order-table" class="display">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Customer</th>
+        <th>Email</th>
         <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>ZipCode</th>
-        <th>CreditCard</th>
-        <th>Expiration</th>
-        <th>Extension</th>
+        <th>Movie</th>
         <th>Timestamp</th>
       </tr>
     </thead>
     <tbody>
       <% orders.forEach(order => {%>
       <tr>
-        <td><%=order.firstName%> <%=order.lastName%></td>
+        <td><%=order.customer%></td>
+        <td><%=order.email%></td>
         <td><%=order.address%></td>
-        <td><%=order.city%></td>
-        <td><%=order.state%></td>
-        <td><%=order.zipcode%></td>
-        <td><%=order.creditcard%></td>
-        <td><%=order.extension%></td>
-        <td><%=order.expiration%></td>
+        <td><%=order.title%></td>
         <td><%=order.timestamp.toLocaleString()%></td>
       </tr>
       <% }); %>
