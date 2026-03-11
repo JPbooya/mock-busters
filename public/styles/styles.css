@@ -1,5 +1,5 @@
 :root{
-    --page-background-col: rgb(255, 248, 211);
+    --page-background-col: rgb(255, 254, 245);
     --light-border-col: rgba(245, 245, 245, 0.85);
     --transparent-dark-bg-col: rgba(0, 0, 0, 0.75);
     --nav-background-col:  rgb(11, 0, 113);
@@ -9,11 +9,15 @@
     --movie-card-button: rgb(36, 36, 36);
     --mb-yellow-col:  rgb(255, 232, 59);
     --font-col:rgba(0, 0, 0, 0.85);
+    --movies-backdrop-col: rgba(255, 255, 255, 0.815);
 }
 
 body {
     min-width:400px;
     color: var(--font-col);
+}
+main{
+    padding: 1rem;
 }
 label {
     font-size: 1.2rem;
@@ -24,14 +28,14 @@ label {
 html{
     overflow-x: hidden;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background: var(--page-background-col);
+    background:linear-gradient(var(--page-background-col), antiquewhite);
 }
 body{
     margin: 0;
 }
 *{
     box-sizing: border-box;
-    border-radius: .25rem;
+    border-radius: .5rem;
 }
 
 #login-section {
@@ -87,7 +91,8 @@ body{
 }
 
 #hp-section{
-    min-height: 100vh;
+    min-height: 80vh;
+    padding: 5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -96,10 +101,13 @@ body{
     "logo au"
 }
 #movies-section{
+    background: var(--movies-backdrop-col);
+    box-shadow: -.1rem .1rem .25rem rgba(0, 0, 0, 0.49);
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 1rem;
     padding: 1rem;
+    /* grid-auto-flow: dense;  */
     justify-items: stretch;
     align-items: stretch;
 }
@@ -148,7 +156,7 @@ footer{
 
 /* --MovieCard-- */
 #movie-name{
-        transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
     font-weight: bold;
     font-size: clamp(1rem, 1.75vw, 1.5rem);
     color: var(--mb-yellow-col);
@@ -162,21 +170,18 @@ footer{
 }
 .movie-card{
     transition: all .35s ease-in-out;
-    background-color: var(--nav-background-col);
+    background: linear-gradient(var(--nav-background-col), rgb(0, 0, 0));
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
     padding: .5rem;
     box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.5);
 }
 #movie-card-a{
     text-decoration: none;
-
 }
 .movie-card:hover{
-    background-color: var(--mb-yellow-col);
-    scale: calc(1.1);
+        box-shadow: -.1rem .15rem .7rem rgba(0, 0, 0, 0.75);
+    scale: calc(1.05);
 }
 .movie-card figcaption{
     margin-top: .5rem;
@@ -185,20 +190,31 @@ footer{
     padding: .25rem;
     background-color: rgba(250, 235, 215, 0.282);
 }
+.movie-card-cover-img{
+    display: flex;
+    width: 50%;
+    height: auto;
+    justify-self: center;
+    border: solid .1rem rgba(0, 0, 0, 0.479);
+    box-shadow: -.1rem .15rem .3rem rgba(0, 0, 0, 0.5);
+}
 /* --MovieCard End-- */
 
 /* --MovieInfo --*/
 #movieInfo-grid{
-    height: 100vh;
+   
     padding: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: center;
 }
 #selected-movie-section{
+    box-shadow: -.1rem .1rem .1rem rgba(0, 0, 0, 0.49);
+    border-right: solid .25rem black;
+    border-top: solid .25rem black;
     padding: 1rem;
     border-radius: .5rem;
-    background: rgba(255, 255, 255, 0.875);
+    background: var(--movies-backdrop-col);
 }
 #movieInfo-rent-a{
     transition: all .25s ease-in-out;
@@ -238,8 +254,8 @@ header{
     padding: .5rem;
 }
 #nav-bar h1{
-        margin: 0;
-    font-size: clamp(.75rem 1.5vw, 1.5rem);
+    margin: 0;
+    font-size: clamp(1rem, 3vw, 2rem);
     color: var(--mb-yellow-col);
     align-self: center;
 }
@@ -339,10 +355,6 @@ input[type="text"], input {
         justify-items: stretch;
         align-items: stretch;
         row-gap: 1rem;
-    }
-    #hp-arrow-fig{
-
-        margin-top: 4rem; /*might be problematic*/
     }
 }
 

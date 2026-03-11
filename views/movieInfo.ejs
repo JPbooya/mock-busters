@@ -15,9 +15,12 @@
     <main>
       <div id="movieInfo-grid">
         <section id="selected-movie-section">
+            <img src=<%= `${movie.movieCover}` %> class="movie-card-cover-img" alt="MockBusters logo image">
             <h3><%= movie.movieName %></h3>
             <p><%= movie.movieAdvancedInfo %></p>
-            <p><strong>Genre</strong> <%= movie.movieGenre %></p>
+            <p><strong>Genre: </strong> <%= movie.movieGenre %></p>
+            <p><strong>Rated: </strong><%= movie.movieRating %> </p>
+            <p><strong>reviews: </strong><%= movie.movieReview %> </p>
         </section>
         <a id="movieInfo-rent-a" href="/billing">RENT MOVIE</a>
       </div>

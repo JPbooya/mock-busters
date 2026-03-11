@@ -44,13 +44,9 @@ app.get('/', (req, res) => {
 
 
 app.get('/billing', (req, res) => {
-  res.render(`billing`);
-  /*adding this code will pass the selected movie info into billing page
-   
-   res.render(`billing`,  { movie: moviesData[curSelectedMovieIdx] }); 
-    
-    I left it commented to not alter more than my assigned tasks
-    */
+
+     res.render(`billing`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
+  // res.render(`billing`);
 });
 
 // login route

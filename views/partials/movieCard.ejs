@@ -1,7 +1,7 @@
 <a id="movie-card-a" href="/movie-info?index=<%= index %>" > 
     <figure class="movie-card">
-        <img src=<%= `${gridElements.imgString}` %> class="hp-logo-image" alt="MockBusters logo image">
-        <figcaption>
+        <figcaption>        <img src=<%= `${movie.movieCover}` %> class="movie-card-cover-img" alt="cover of the selected movie">
+
             <p><span id="movie-name"><%= movie.movieName %></span></p>
             <p></strong><span id="movie-info">"<%= movie.movieInfo %> "</span></p>
             <p><strong>Genre : <span id="movie-gnere"></strong><%= movie.movieGenre %></span></p>
