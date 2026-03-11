@@ -1,4 +1,6 @@
 import express from 'express';
+import mysql2 from 'mysql2';
+import dotenv from 'dotenv';
 /* DOCUMENTATION 
 Movie data import
 
@@ -9,6 +11,8 @@ additional parsing or configuration.
 If the project later moves to a dynamic data source (JSON file, database, or API),
 this import can be updated accordingly. */
 import { moviesData } from './data/moviesData.js'; // Imports movie data from the data folder
+
+dotenv.config();
 
 const app = express();
 const PORT = 3090;
@@ -23,6 +27,14 @@ app.use(express.urlencoded({ extended: true }));
 const gridElements = { imgString: "/images/mbLogo.png" }; 
 const orders = []
 
+// Pool of database connections
+const pool = mysql2.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port:  process.env.DB_PORT
+}).promise();
 
 
 // Default route
@@ -54,8 +66,10 @@ app.get('/movie-info', (req, res) => {
   res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx] , index: curSelectedMovieIdx });
 });
 
-app.get('/admin', (req, res) => {
-  res.render(`admin`, { orders });
+app.get('/admin', async (req, res) => {
+  let sql = 'SELECT * FROM orders ORDER BY timestamp DESC';
+  const orders = await pool.query(sql);
+  res.render(`admin`, { orders: orders[0] });
 });
 
 app.post('/submit', (req, res) => {
