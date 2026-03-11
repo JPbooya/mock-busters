@@ -32,6 +32,7 @@ const order = {
   <table id="order-table" class="display">
     <thead>
       <tr>
+        <th>Order ID</th>
         <th>Customer</th>
         <th>Email</th>
         <th>Address</th>
@@ -42,6 +43,7 @@ const order = {
     <tbody>
       <% orders.forEach(order => {%>
       <tr>
+        <td><%=order.id%></td>
         <td><%=order.customer%></td>
         <td><%=order.email%></td>
         <td><%=order.address%></td>
