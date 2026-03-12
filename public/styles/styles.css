@@ -91,6 +91,55 @@ body{
     margin-bottom: 8rem;
 }
 
+#confirmation-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+#confirmation-container {
+  background: rgba(255, 255, 255, 0.875);
+  padding: 2rem;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+#confirmation-container h1 {
+  color: var(--nav-background-col);
+  margin-bottom: .5rem;
+}
+
+#confirmation-container h2 {
+  color: var(--dark-faded-font-col);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--mb-yellow-col);
+  padding-bottom: .5rem;
+}
+
+#confirmation-container p {
+  font-size: 1.1rem;
+  margin-bottom: .75rem;
+}
+
+#confirmation-container span {
+  font-weight: bold;
+  color: var(--nav-background-col);
+}
+
+#confirmation-container a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: .75rem 1.5rem;
+  background: var(--nav-background-col);
+  color: var(--light-font-col);
+  border: .125rem solid var(--mb-yellow-col);
+  text-decoration: none;
+}
+
 #hp-section{
     min-height: 80vh;
     padding: 5rem;
