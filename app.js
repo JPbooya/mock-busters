@@ -78,27 +78,25 @@ app.post('/submit', async (req, res) => {
   const order = {
     firstName: req.body.fname,
     lastName: req.body.lname,
-    address: req.body.aname,
+    email: req.body.email,
     city: req.body.cname,
     state: req.body.sname,
     zipcode: req.body.zname,
-    creditcard: req.body["credit-name"],
-    extension: req.body["extension-name"],
-    expiration: req.body["exname"],
-    delivery: req.body["dtd-name"],
     timestamp: new Date()
   }
 
   // Array for saving to database
   const params = [
-    req.body.fname + " " + req.body.lname, // Name
-    req.body.aname, // Address
-    "EMAIL",  // Email,
-    1, // Movie ID (not yet tracked)
+    order.firstName + " " + order.lastName, // Name
+    order.email, // Email
+    order.city,  // City
+    order.state, // State
+    order.zipcode, // Zipcode
+    curSelectedMovieIdx, // Movie ID (not yet tracked)
   ]
 
   // CUSTOMER, ADDRESS, EMAIL, MOVIE_ID <--in that order
-  const sql = `INSERT INTO orders (customer, address, email, movie_id) VALUES (?,?,?,?)`
+  const sql = `INSERT INTO orders (customer, email, city, state, zipcode, movie_id) VALUES (?,?,?,?,?,?)`
 
   // Try to save the data to the database
   try {
