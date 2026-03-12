@@ -11,7 +11,9 @@
 <body>
 
       <%- include ('../views/partials/header.ejs') %>
-      
+<main id="confirmation-section">
+  <div id="confirmation-container">
+
     <h1>Thank you!  <%= order.firstName %>!</h1>
     <h2>Your Order Details</h2>
     <p>Name: <%= order.firstName %> </p>
@@ -40,5 +42,7 @@
     -->
     <a href="/">Return</a>
     <!-- This page is extremely unfinished and temporary. -->
-</body>
+      </div>
+    </main>
+  </body>
 </html>
