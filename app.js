@@ -40,7 +40,7 @@ let isMovies = false;
 // Default route
 app.get('/', (req, res) => {
   while(!isMovies){
-    
+    res.send("loading");
     console.log('loading');
     if(moviesData){isMovies = true;}
   }
