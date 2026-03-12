@@ -36,9 +36,14 @@ const pool = mysql2.createPool({
   port: process.env.DB_PORT
 }).promise();
 
-
+let isMovies = false;
 // Default route
 app.get('/', (req, res) => {
+  while(!isMovies){
+    
+    console.log('loading');
+    if(moviesData){isMovies = true;}
+  }
   res.render(`home`, { gridElements, moviesData });
 });
 
