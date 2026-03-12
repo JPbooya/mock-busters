@@ -37,24 +37,6 @@ export const moviesData =  [
     movieReview:"3.4 out of 5"
   },
   {
-    movieName: "The Hobbit: An Unexpected Journey",
-    movieInfo: "Bilbo Baggins sets out on a dangerous quest with a group of dwarves.",
-    movieAdvancedInfo: "Bilbo Baggins, a quiet and comfort-loving hobbit, is unexpectedly recruited by the wizard Gandalf to assist a band of dwarves on a mission to reclaim their homeland from the dragon Smaug. Though initially reluctant, Bilbo gradually discovers his courage as he faces trolls, goblins, and other dangers across Middle-earth. His journey marks the beginning of an epic adventure that will shape the fate of the world.",
-    movieGenre: "fantasy",
-    movieCover: "/images/coverImages/thehobbit1Cover.webp",
-    movieRating:"PG-13",
-    movieReview:"3.9 out of 5"
-  },
-  {
-    movieName: "Peter Pan",
-    movieInfo: "A boy who never grows up takes children to a magical island.",
-    movieAdvancedInfo: "Peter Pan invites Wendy and her brothers to join him in Neverland, a magical place where children never grow up. There they meet mermaids, fairies, and the mischievous Lost Boys while facing the threat of the villainous Captain Hook. The story explores themes of imagination, childhood wonder, and the bittersweet nature of growing up.",
-    movieGenre: "family",
-    movieCover: "/images/coverImages/peterPCover.webp",
-    movieRating:"PG",
-    movieReview:"3.4 out of 5"
-  },
-  {
     movieName: "Alice in Wonderland",
     movieInfo: "A girl falls into a strange and whimsical fantasy world.",
     movieAdvancedInfo: "Alice tumbles down a rabbit hole into the surreal world of Wonderland, where she encounters curious characters such as the Mad Hatter, the Cheshire Cat, and the tyrannical Queen of Hearts. As Alice navigates this bizarre land, she learns to trust her instincts and challenge the nonsense around her.",
