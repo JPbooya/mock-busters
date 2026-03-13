@@ -85,7 +85,7 @@ app.post('/submit', async (req, res) => {
     order.city,  // City
     order.state, // State
     order.zipcode, // Zipcode
-    curSelectedMovieIdx, // Movie ID (not yet tracked)
+    1, // Movie ID (not yet tracked)
   ]
 
   // CUSTOMER, ADDRESS, EMAIL, MOVIE_ID <--in that order
