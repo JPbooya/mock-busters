@@ -61,7 +61,7 @@ app.get('/movie-info', (req, res) => {
 });
 
 app.get('/admin', async (req, res) => {
-  let sql = 'SELECT orders.id AS id, customer, email, address, timestamp, movies.title AS title FROM orders JOIN movies ON orders.movie_id = movies.id ORDER BY timestamp DESC';
+  let sql = 'SELECT orders.id AS id, customer, email, city, state, zipcode, timestamp, movie_id FROM orders ORDER BY timestamp DESC';
   const orders = await pool.query(sql);
   res.render(`admin`, { orders: orders[0] });
 });
