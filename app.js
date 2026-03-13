@@ -23,8 +23,6 @@ let curSelectedMovieIdx;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-// this is the image route string, it was suppose to be an array of many images, but currently only the one is used so it might appear unneccesary.
-const gridElements = { imgString: "/images/mbLogo.png" };
 const orders = []
 
 // Pool of database connections
@@ -39,7 +37,7 @@ const pool = mysql2.createPool({
 
 // Default route
 app.get('/', (req, res) => {
-  res.render(`home`, { gridElements, moviesData });
+  res.render(`home`, { moviesData });
 });
 
 
