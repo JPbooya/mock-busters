@@ -17,15 +17,15 @@
 
   <%- include ('../views/partials/header.ejs') %>
 
-   <!-- Display form errors if they exist-->
-    <% if (typeof errors != 'undefined') { %>
-        <p>yes, there are errors</p>
-        <% errors.forEach(error => { %>
-         <p> <%= error %> </p>
-         <% }); %>
-    <%  } %>
-  
-  <form id="billing-form" action="/submit" method="post" class="form-grid">
+  <!-- Display form errors if they exist-->
+  <% if (typeof errors != 'undefined') { %>
+  <p>yes, there are errors</p>
+  <% errors.forEach(error => { %>
+  <p> <%= error %> </p>
+  <% }); %>
+  <%  } %>
+
+  <form id="billing-form" action="/submit?index=<%=index%>" method="post" class="form-grid">
 
     <div id="rented-movie"><%- include ('../views/partials/movieCard.ejs', {movie, index}) %></div>
 
@@ -59,7 +59,8 @@
       <input type="text" id="zname" name="zname">
     </div>
 
-        <button type="submit" id="order-button" class="submit-btn">Submit</button>
+    <input type="hidden" name="movieid" value="<%=index%>">
+    <button type="submit" id="order-button" class="submit-btn">Submit</button>
 
   </form>
 </body>
