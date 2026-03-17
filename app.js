@@ -19,7 +19,6 @@ dotenv.config();
 const app = express();
 const PORT = 3090;
 app.set('view engine', 'ejs');
-let curSelectedMovieIdx;
 
 //middleware
 app.use(express.static("public"));
@@ -44,8 +43,10 @@ app.get('/', (req, res) => {
 
 
 app.get('/billing', (req, res) => {
-     res.render(`billing`, {movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
-  // res.render(`billing`);
+  // req.query.index <-- This is the selected index
+  if (req.query.index == undefined) res.send("Invalid movie index, please try a different movie.");
+  res.render(`billing`, { movie: moviesData[req.query.index], index: req.query.index });
+
 });
 
 
@@ -56,10 +57,9 @@ app.get('/login', (req, res) => {
 
 // renders movie info page when a movie is clicked
 app.get('/movie-info', (req, res) => {
-  // console.log( req.query.index);
-  curSelectedMovieIdx = req.query.index; // 
-
-  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx});
+  // console.log( req.query.index );
+  if (req.query.index == undefined) res.send("Invalid movie index, please try a different movie.");
+  res.render(`movieInfo`, { movie: moviesData[req.query.index], index: req.query.index });
 });
 
 app.get('/admin', async (req, res) => {
@@ -69,10 +69,10 @@ app.get('/admin', async (req, res) => {
 });
 
 app.post('/submit', async (req, res) => {
-
+  if (req.query.index == undefined) res.send("Invalid movie index, please try a different movie.");
   // Pull form values from the submitted form data 
-  const {fname, lname, email, cname, sname, zname} = req.body;
-  
+  const { fname, lname, email, cname, sname, zname } = req.body;
+
   // JSON for displaying to client.
   const order = {
     firstName: req.body.fname,
@@ -84,10 +84,10 @@ app.post('/submit', async (req, res) => {
     timestamp: new Date()
   }
 
-   // Calls validate form for exisiting fname, lname, email, cname, sname, zname before saving to DB.
-  const valid = validateForm({fname, lname, email, cname, sname, zname});
+  // Calls validate form for exisiting fname, lname, email, cname, sname, zname before saving to DB.
+  const valid = validateForm({ fname, lname, email, cname, sname, zname });
   if (!valid.isValid) {
-    res.render('billing', {errors: valid.errors, movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx});
+    res.render('billing', { errors: valid.errors, movie: moviesData[req.query.index], index: req.query.index });
     return;
   }
 
@@ -98,7 +98,7 @@ app.post('/submit', async (req, res) => {
     order.city,  // City
     order.state, // State
     order.zipcode, // Zipcode
-    1, // Movie ID (not yet tracked)
+    req.query.index, // Movie ID (not yet tracked)
   ]
 
   // CUSTOMER, ADDRESS, EMAIL, MOVIE_ID <--in that order
