@@ -59,7 +59,7 @@ app.get('/movie-info', (req, res) => {
   // console.log( req.query.index);
   curSelectedMovieIdx = req.query.index; // 
 
-  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx });
+  res.render(`movieInfo`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx});
 });
 
 app.get('/admin', async (req, res) => {
