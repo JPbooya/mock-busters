@@ -44,8 +44,10 @@ app.get('/', (req, res) => {
 
 
 app.get('/billing', (req, res) => {
-     res.render(`billing`, {movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
+  // res.render(`billing`, {movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
   // res.render(`billing`);
+    const cart = req.query.cart.split(',').map(Number);
+   res.render(`billing`, {moviesData: moviesData, cart: cart}); 
 });
 
 
@@ -67,6 +69,10 @@ app.get('/admin', async (req, res) => {
   const orders = await pool.query(sql);
   res.render(`admin`, { orders: orders[0] });
 });
+
+app.get('/cart', (req,res)=>{
+  res.render('cart', {moviesData: moviesData});
+})
 
 app.post('/submit', async (req, res) => {
 

@@ -26,8 +26,21 @@
     <%  } %>
   
   <form id="billing-form" action="/submit" method="post" class="form-grid">
-
-    <div id="rented-movie"><%- include ('../views/partials/movieCard.ejs', {movie, index}) %></div>
+<!-- <div id="rented-movie"> include ('../views/partials/movieCard.ejs', {movie, index}) </div> -->
+  
+<div id="rented-movie">
+  <p>CART</p>
+    <% if(cart.length === 0) { %>
+      <p>Your cart is empty.</p>
+    <% } else { %>
+      <% cart.forEach((index) => { %>
+        <div class="rented-card">
+          <h3><%= moviesData[index].movieName %></h3>
+          <img src="<%= moviesData[index].movieCover %>" width="80">
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
 
     <div>
       <label for="fname">First Name<span class="err" id="err-fname">Invalid First Name.</span></label>

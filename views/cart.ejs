@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/mbLogo.png">
+  <title>MockBusters</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+    <body>
+        <%- include ('../views/partials/header.ejs') %>
+        <h1>Your Cart</h1>
+        <section id="movies-section">
+
+        </section>
+
+        <button id="load-cart-btn" onclick="loadCart()">Load Cart</button>
+        <button id="clear-cart-btn" onclick="clearCart()">clear Cart</button>
+        <button id="clear-cart-btn" onclick=" checkout()">checkout</button>
+
+    </body>
+</html>
+
+<script>
+    function checkout(){
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+window.location.href= `/billing?cart=${cart}`;
+    }
+    function clearCart()
+    {
+        localStorage.setItem("cart", JSON.stringify([]));
+        alert("Cart cleared!");
+    }
+
+    function loadCart() 
+    {
+        // Get cart from localStorage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        // Get moviesData
+        const moviesData = <%- JSON.stringify(moviesData) %>;
+
+        const container = document.getElementById("movies-section");
+        container.innerHTML = ""; // Clear 
+
+        // Loop the cart of movie indexes and create a new element in the body of the html 
+        cart.forEach(index => {
+        const movie = moviesData[index];
+
+        const div = document.createElement("div");
+        div.innerHTML = 
+        `
+            <h3>${movie.movieName}</h3>
+            <img src="${movie.movieCover}" width="100">
+        `;
+
+        container.appendChild(div);
+        });
+    }
+</script>

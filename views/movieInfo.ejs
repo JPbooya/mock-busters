@@ -23,22 +23,36 @@
             <p><strong>reviews: </strong><%= movie.movieReview %> </p>
         </section>
         <a id="movieInfo-rent-a" href="/billing">RENT MOVIE</a>
+        <button onclick="addCart(<%= index %>)">add to cart</button>
+        <button onclick="clearCart()">clear cart</button>
+        <a  href="/cart">view cart</a>
       </div>
     </main>
   </body>
 </html>
 
-<!-- <script>
-THIS COULD BE ADDED TO AN SQL CALL
-
-  function sk(index){
+<script>
+  function addCart(index){
     if(!localStorage.getItem("cart")){
       localStorage.setItem("cart", JSON.stringify([]));
     }
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(index);
+
+    //prevent adding duplicate movies
+    if(!cart.includes(index)){
+      cart.push(index);
+    }
+    else{
+      return;
+    }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    alert(cart);
   }
-</script> -->
+
+  function clearCart(){
+    localStorage.setItem("cart", JSON.stringify([]));
+    alert("Cart cleared!");
+  }
+</script> 
