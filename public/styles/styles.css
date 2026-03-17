@@ -38,6 +38,7 @@ body{
     box-sizing: border-box;
     border-radius: .5rem;
 }
+/* CSS Login form */
 
 #login-section {
   min-height: 100vh;
@@ -91,6 +92,14 @@ body{
     margin-bottom: 8rem;
 }
 
+#login-form input {
+  box-shadow: 0rem .1rem .4rem rgba(0, 0, 0, 0.2);
+  border: 1px solid lightgray;
+  padding: 15px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
 #confirmation-section {
   min-height: 100vh;
   display: flex;
@@ -98,6 +107,8 @@ body{
   justify-content: center;
   padding-top: 3rem;
 }
+
+/* End of CSS login form */
 
 #confirmation-container {
   background: rgba(255, 255, 255, 0.875);
@@ -384,6 +395,25 @@ input[type="text"], input {
 #billing-form input {
      box-shadow: 0rem .1rem .4rem rgba(0, 0, 0, 0.2);
 }
+
+.full-width {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+#order-button {
+  grid-column: 2 / 4;
+  width: 35%;
+  margin: 0 auto;
+  padding: .4rem .75rem;
+  background: var(--nav-background-col);
+  color: var(--light-font-col);
+  border: .125rem solid var(--mb-yellow-col);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 /* --Billing form ends-- */
 
 @media screen and (max-width:550px) {
