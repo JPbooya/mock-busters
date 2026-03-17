@@ -388,8 +388,6 @@ input[type="text"], input {
 #rented-movie {
     grid-row: span 4;
     background-color: var(--transparent-dark-bg-col);
-    padding: 15px;
-    min-height: 150px;
 }
 
 #billing-form input {
@@ -404,9 +402,10 @@ input[type="text"], input {
 
 #order-button {
   grid-column: 2 / 4;
-  width: 35%;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem 2rem;
   margin: 0 auto;
-  padding: .4rem .75rem;
   background: var(--nav-background-col);
   color: var(--light-font-col);
   border: .125rem solid var(--mb-yellow-col);
@@ -420,11 +419,30 @@ input[type="text"], input {
     #rented-movie {
         grid-column: 1 / -1;
     }
-
     .form-grid {
         grid-template-columns:1fr 1fr;
+    }    
+}
+
+@media screen and (max-width:800px) { 
+    /*this make the homepage look nicer at moderate widths also looks better on billing page*/
+    #movies-section{
+    grid-template-columns: auto auto;
+    }
+    .movie-card{
+        scale: calc(.925);
+        width: 100%;
+        margin: 0 auto;
+    }
+    .movie-name{
+        font-size: medium;
+    }
+    .movie-card:hover{
+        box-shadow: -.1rem .15rem .7rem rgba(0, 0, 0, 0.75);
+        scale: calc(.95);
     }
 }
+
 
 @media screen and (orientation: portrait){
     
