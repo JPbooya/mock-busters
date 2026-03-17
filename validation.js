@@ -30,16 +30,15 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     errors.push("City is required.");
   }
 
-   // Validates last name 
+   // Validates state
   if (data.sname.trim() == "") {
     errors.push("State is required.");
   }
 
-   // Validates last name 
+   // Validates zip code
   if (data.zname.trim() == "" || data.zname.length != 5) {
     errors.push("Zip code is required.");
   }
-
 
   return {
     isValid: errors.length === 0,

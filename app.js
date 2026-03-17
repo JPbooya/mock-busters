@@ -1,6 +1,8 @@
 import express from 'express';
 import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
+import { validateForm } from './validation.js';
+
 /* DOCUMENTATION 
 Movie data import
 
@@ -42,10 +44,10 @@ app.get('/', (req, res) => {
 
 
 app.get('/billing', (req, res) => {
-
-     res.render(`billing`, { movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
+     res.render(`billing`, {movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx }); 
   // res.render(`billing`);
 });
+
 
 // login route
 app.get('/login', (req, res) => {
@@ -67,6 +69,10 @@ app.get('/admin', async (req, res) => {
 });
 
 app.post('/submit', async (req, res) => {
+
+  // Pull form values from the submitted form data 
+  const {fname, lname, email, cname, sname, zname} = req.body;
+  
   // JSON for displaying to client.
   const order = {
     firstName: req.body.fname,
@@ -76,6 +82,13 @@ app.post('/submit', async (req, res) => {
     state: req.body.sname,
     zipcode: req.body.zname,
     timestamp: new Date()
+  }
+
+   // Calls validate form for exisiting fname, lname, email, cname, sname, zname before saving to DB.
+  const valid = validateForm({fname, lname, email, cname, sname, zname});
+  if (!valid.isValid) {
+    res.render('billing', {errors: valid.errors, movie: moviesData[curSelectedMovieIdx], index: curSelectedMovieIdx});
+    return;
   }
 
   // Array for saving to database
