@@ -35,15 +35,26 @@
           <h2> VIEW MOVIES</h2>
           <img src="/images/arrowDown.webp" alt="arrow-image">
       </div>
+      
+      <nav id="sort-genre">
+        <span>SORT BY GENRE: </span>
+        
+        <a <% if(sortGenre === "all"){%> style="color: yellow;"<%}%>href="/?sortGenre=all"> all </a>
+        <a <% if(sortGenre === "fantasy"){%> style="color: yellow;"<%}%>href="/?sortGenre=fantasy"> fantasy </a>
+        <a <% if(sortGenre === "family"){%> style="color: yellow;"<%}%>href="/?sortGenre=family"> family </a>
+        <a <% if(sortGenre === "sci-fi"){%> style="color: yellow;"<%}%>href="/?sortGenre=sci-fi"> sci-fi </a>
+        <a <% if(sortGenre === "thriller"){%> style="color: yellow;"<%}%>href="/?sortGenre=thriller"> thriller </a>
+
+      </nav>
+    <!-- <p>genre: <%= sortGenre %></p> -->
     <section id="movies-section">
       <% for(let i = 0; i < Object.entries(moviesData).length; i++) {%>
+        <% if(moviesData[i].movieGenre === sortGenre || sortGenre === "all") { %>
         <%- include ('../views/partials/movieCard.ejs', {movie: moviesData[i], index: i}) %>
-      <%}%>
+      <%}}%>
     </section>
   </main>
   <footer>
-
   </footer>
-
 </body>
 </html>

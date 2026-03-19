@@ -80,5 +80,59 @@ export const moviesData =  [
     movieCover: "/images/coverImages/toystoryCover.webp",
     movieRating:"G",
     movieReview:"4.2 out of 5"
-  }
+  },
+  {
+  movieName: "The Matrix",
+  movieInfo: "A hacker discovers reality is a simulation controlled by machines.",
+  movieAdvancedInfo: "Neo, a computer hacker, learns from mysterious rebels that the world he lives in is a simulated reality created by machines to enslave humanity. As he joins the resistance, Neo begins to unlock extraordinary abilities within the Matrix. Facing powerful agents and uncovering deeper truths, he must decide whether he is truly 'The One' destined to free mankind.",
+  movieGenre: "sci-fi",
+  movieCover: "/images/coverImages/matrixCover.webp",
+  movieRating: "R",
+  movieReview: "4.7 out of 5"
+},
+{
+  movieName: "Tenet",
+  movieInfo: "An agent manipulates time to prevent global catastrophe.",
+  movieAdvancedInfo: "A secret agent known only as the Protagonist is recruited into a mysterious organization tasked with preventing World War III. Using technology that allows objects and people to move backward through time, he must navigate a complex web of espionage and temporal paradoxes to stop a powerful enemy with world-ending ambitions.",
+  movieGenre: "sci-fi",
+  movieCover: "/images/coverImages/tenetCover.webp",
+  movieRating: "PG-13",
+  movieReview: "4.1 out of 5"
+},
+{
+  movieName: "Shutter Island",
+  movieInfo: "A U.S. Marshal investigates a disappearance at a remote asylum.",
+  movieAdvancedInfo: "Teddy Daniels travels to a secluded island asylum to investigate the disappearance of a patient. As a violent storm traps him on the island, strange occurrences and disturbing revelations begin to surface. The deeper Teddy digs, the more he questions his own sanity and the true nature of the institution.",
+  movieGenre: "thriller",
+  movieCover: "/images/coverImages/shutterislandCover.webp",
+  movieRating: "R",
+  movieReview: "4.5 out of 5"
+},
+{
+  movieName: "The Girl with the Dragon Tattoo",
+  movieInfo: "A journalist and hacker investigate a decades-old disappearance.",
+  movieAdvancedInfo: "Journalist Mikael Blomkvist teams up with brilliant but troubled hacker Lisbeth Salander to investigate the decades-old disappearance of a wealthy industrialist’s niece. As they dig deeper into the family’s dark history, they uncover disturbing secrets involving abuse, corruption, and murder, putting their own lives at risk.",
+  movieGenre: "thriller",
+  movieCover: "/images/coverImages/dragontattooCover.webp",
+  movieRating: "R",
+  movieReview: "4.4 out of 5"
+},
+{
+  movieName: "Se7en",
+  movieInfo: "Two detectives hunt a killer using the seven deadly sins.",
+  movieAdvancedInfo: "Detectives Somerset and Mills track a meticulous serial killer who uses the seven deadly sins as the basis for his gruesome murders. As the investigation intensifies, the killer’s plan becomes increasingly elaborate and personal. The case pushes both detectives to their psychological limits, culminating in a shocking and unforgettable conclusion.",
+  movieGenre: "thriller",
+  movieCover: "/images/coverImages/se7enCover.webp",
+  movieRating: "R",
+  movieReview: "4.8 out of 5"
+},
+{
+  movieName: "Finding Nemo",
+  movieInfo: "A clownfish searches the ocean for his lost son.",
+  movieAdvancedInfo: "After his son Nemo is captured by a diver, Marlin, an overly cautious clownfish, sets out on a vast ocean journey to find him. Along the way, he teams up with Dory, a forgetful but optimistic fish. Together they encounter sharks, sea turtles, and countless dangers, while Marlin learns to trust and let go of his fears.",
+  movieGenre: "family",
+  movieCover: "/images/coverImages/findingnemoCover.webp",
+  movieRating: "G",
+  movieReview: "4.7 out of 5"
+},
 ]

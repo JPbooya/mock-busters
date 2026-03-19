@@ -1,9 +1,9 @@
-<a id="movie-card-a" href="/movie-info?index=<%= index %>" > 
+<a class="movie-card-a" href="/movie-info?index=<%= index %>" > 
     <figure class="movie-card">
         <img src=<%= `${movie.movieCover}` %> class="movie-card-cover-img" alt="cover of the selected movie">
         <figcaption>      
             <p><span class="movie-name"><%= movie.movieName %></span></p>
-            <p></strong><span class="movie-info">"<%= movie.movieInfo %> "</span></p>
+            <p><span class="movie-info">"<%= movie.movieInfo %> "</span></p>
             <p><strong>Genre : <span class="movie-genre"></strong><%= movie.movieGenre %></span></p>
         </figcaption>
     </figure>

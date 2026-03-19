@@ -36,9 +36,11 @@ const pool = mysql2.createPool({
 }).promise();
 
 
-// Default route
+// Default route 
+// sort genre is passed in from the homepage if a sort link is selected.
 app.get('/', (req, res) => {
-  res.render(`home`, { moviesData });
+  let sortGenre = req.query.sortGenre || "all";
+  res.render(`home`, { moviesData, sortGenre});
 });
 
 

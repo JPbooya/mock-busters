@@ -17,10 +17,10 @@
         <section id="selected-movie-section">
             <img src=<%= `${movie.movieCover}` %> id="movie-info-cover-img" alt="MockBusters logo image">
             <h3><%= movie.movieName %></h3>
-            <p><%= movie.movieAdvancedInfo %></p>
-            <p><strong>Genre: </strong> <%= movie.movieGenre %></p>
-            <p><strong>Rated: </strong><%= movie.movieRating %> </p>
-            <p><strong>reviews: </strong><%= movie.movieReview %> </p>
+            <p id="advanceInfo"><%= movie.movieAdvancedInfo %></p>
+            <p><strong>Genre: </strong> <span><%= movie.movieGenre %></span> </p>
+            <p><strong>Rated: </strong> <span><%= movie.movieRating %></span> </p>
+            <p><strong>reviews: </strong> <span><%= movie.movieReview %></span> </p>
         </section>
         <a id="movieInfo-rent-a" href="/billing?index=<%=index%>">RENT MOVIE</a>
       </div>
