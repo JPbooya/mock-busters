@@ -36,7 +36,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   }
 
    // Validates zip code
-  if (data.zname.trim() == "" || data.zname.length != 5) {
+  if (data.zname.trim() == "") {
     errors.push("Zip code is required.");
   }
 
