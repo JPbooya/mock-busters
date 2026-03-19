@@ -111,6 +111,7 @@ body{
 /* End of CSS login form */
 
 #confirmation-container {
+  text-align: center;
   background: rgba(255, 255, 255, 0.875);
   padding: 2rem;
   width: 100%;
